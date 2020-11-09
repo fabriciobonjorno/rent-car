@@ -1,0 +1,38 @@
+<%= form_with model: [:dashboard, @car], local: true do |f| %>
+  <div class="container">
+      <div class="row">
+        <div class="form-group col-md-2">
+          <%= f.label :model %>
+          <%= f.text_field :model, class: "form-control" %>
+        </div>
+        <div class="form-group col-md-2">
+          <%= f.label :brand %>
+          <%= f.text_field :brand, class: "form-control" %>
+        </div>
+        <div class="form-group col-md-2">
+          <%= f.label :board %>
+          <%= f.text_field :board, class: "form-control" %>
+        </div>
+        <div class="form-group col-md-2">
+          <%= f.label :model_year %>
+          <%= f.text_field :model_year, class: "form-control" %>
+        </div>
+        <div class="form-group col-md-2">
+          <%= f.label :manufacture_year %>
+          <%= f.text_field :manufacture_year, class: "form-control" %>
+        </div>
+        <div class="form-group col-md-2">
+          <%= f.label :reservation %>
+          <%= f.check_box :reservation, class: "input-group-text" %>
+        </div>
+
+
+      </div>
+    <div class="row mt-3">
+      <div class="mx-auto">
+        <%= f.submit class: "btn btn-success", data: { disable_with: "Criando....⌛" } %>
+        <%= link_to "Cancelar", dashboard_users_path, class: "btn btn-danger ml-1" %>
+      </div>
+    </div>
+  </div>
+<% end %>
