@@ -47,6 +47,6 @@ class User::ReservationsController < UserController
   end
 
   def reservations_params
-    params.require(:reservation).permit(:date_start, :date_end, :client_id, :car_id)
+    params.require(:reservation).permit(:date_start, :date_end, :car_id).merge(client_id: current_client.id)
   end
 end

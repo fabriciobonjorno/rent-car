@@ -4,6 +4,7 @@ class User::ClientsController < UserController
 
   def index
     @clients = Client.all
+    @reservations = Reservation.all
   end
 
   def new
@@ -48,7 +49,7 @@ class User::ClientsController < UserController
   end
 
   def clients_params
-    params.require(:client).permit(:name, :email, :password, :password_confirmation, :cpd)
+    params.require(:client).permit(:name, :email, :password, :password_confirmation, :cpf)
   end
 
   # remove o input da validação do devise

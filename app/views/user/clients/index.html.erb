@@ -1,31 +1,15 @@
 
 <div class="mt-5 mb-5">
-<%= link_to "<button class='btn btn-success'>Cadastrar</button>".html_safe, new_user_client_path %>
+ <%= link_to "<button class='btn btn-success'>Nova Reserva</button>".html_safe, user_reservations_path %>
 </div>
 
-<div class="table-responsive">
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Email</th>
-      <th scope="col">Cpf</th>
-      <th scope="col">Ação</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @clients.each do |client| %>
-    <tr>
-      <th scope="row"><%= client.id %></th>
-      <td><%= client.name %></td>
-      <td><%= client.email %></td>
-      <td><%= client.cpf %></td>
-      <td class="text-center"><%= link_to "Editar", edit_user_client_path(client), class: "btn btn-secondary" %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-</div>  
+<% if current_client.id == @reservation.client.id %>
+Minhas Reservas
+  <% @reservations.each do |reservation| %>
+  <%= reservation.id %>
+  <%= reservation.client.email %>
+  <%= reservation.car.model %>
+<% end %>
+<% end %>
 
 
