@@ -2,19 +2,19 @@ class User::ReservationsController < UserController
   before_action :set_reservations, only: %i[edit update destroy]
 
   def index
-    @resevartions = Reservation.all
+    @reservations = Reservation.all
   end
 
   def new
-    @resevartion = Reservation.new
+    @reservation = Reservation.new
   end
 
   def create
-    @resevartion = Reservation.new(reservations_params)
+    @reservation = Reservation.new(reservations_params)
     if @reservation.save
-      redirect_to user_resevations_path, notice: "#{@resevartion.id} feita com sucesso!"
+      redirect_to user_reservations_path, notice: "#{@reservation.id} feita com sucesso!"
     else
-      flash.now[:alert] = @resevation.errors.full_messages.to_sentence
+      flash.now[:alert] = @reservation.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -23,19 +23,19 @@ class User::ReservationsController < UserController
   end
 
   def update
-    if @resevartion.update(reservations_params)
-      redirect_to user_resevations_path, notice: "#{@resevartion.id} atualizada com sucesso!"
+    if @reservation.update(reservations_params)
+      redirect_to user_reservations_path, notice: "#{@reservation.id} atualizada com sucesso!"
     else
-      flash.now[:alert] = @resevation.errors.full_messages.to_sentence
+      flash.now[:alert] = @reservation.errors.full_messages.to_sentence
       render :edit
     end
   end
 
   def destroy
-    if @resevartion.destroy
-      redirect_to user_resevations_path, notice: "#{@resevartion.id} excluida com sucesso!"
+    if @reservation.destroy
+      redirect_to user_reservations_path, notice: "#{@reservation.id} excluida com sucesso!"
     else
-      flash.now[:alert] = @resevation.errors.full_messages.to_sentence
+      flash.now[:alert] = @reservation.errors.full_messages.to_sentence
       render :edit
     end
   end
@@ -43,7 +43,7 @@ class User::ReservationsController < UserController
   private
 
   def set_reservations
-    @resevation = Reservation.find(params[:id])
+    @reservation = Reservation.find(params[:id])
   end
 
   def reservations_params
