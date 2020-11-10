@@ -7,7 +7,7 @@
           <p>Modelo: <%= car.model %></p>
           <p>Marca: <%= car.brand %></p>
           <p>Ano: <%= car.model_year %>/<%= car.manufacture_year %></p>
-          <%= link_to "Reservar", user_clients_path, class: "btn btn-success" %>
+          <%= link_to "Reservar", new_user_reservation_path, class: "btn btn-success" %>
         </div>
       </div>
     <% end %>

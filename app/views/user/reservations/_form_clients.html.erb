@@ -1,15 +1,15 @@
 <%= form_with model: [:user, @reservation], local: true do |f| %>
   <div class="container">
     <div class="row">
-      <div class="form-group col-md-3">
+      <div class="form-group col-md-4">
         <%= f.label :date_start %>
         <%= f.date_field :date_start, class: "form-control" %>
       </div>
-      <div class="form-group col-md-3">
+      <div class="form-group col-md-4">
         <%= f.label :date_end %>
         <%= f.date_field :date_end, class: "form-control" %>
       </div>
-      <div class="form-group col-md-2">
+      <div class="form-group col-md-4">
         <label>Carro</label>
         <%= collection_select(:reservation, :car_id, Car.where(rented: false), :id, :model, { prompt: "Selecione" }, { class: "form-control" }) %>
       </div>
