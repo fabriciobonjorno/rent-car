@@ -19,8 +19,7 @@ class Dashboard::CarsController < DashboardController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @car.update(cars_params)

@@ -1,15 +1,16 @@
-
 <div class="mt-5 mb-5">
- <%= link_to "<button class='btn btn-success'>Nova Reserva</button>".html_safe, user_reservations_path %>
+  <%= link_to "<button class='btn btn-success'>Nova Reserva</button>".html_safe, new_user_reservation_path %>
 </div>
-
-<% if current_client.id == @reservation.client.id %>
-Minhas Reservas
+<h5>Minhas Reservas:</h5>
+<div class="row mt-2">
   <% @reservations.each do |reservation| %>
-  <%= reservation.id %>
-  <%= reservation.client.email %>
-  <%= reservation.car.model %>
-<% end %>
-<% end %>
-
-
+    <div class="card p-3 ml-1 col-4">
+      <p>Cód. Reserva: <%= reservation.id %></p>
+      <p>Email: <%= reservation.client.email %></p>
+      <p>Modelo/Marca: <%= reservation.car.model %> / <%= reservation.car.brand %></p>
+      <p>Perido Reserva: de <%= reservation.date_start.strftime("%d/%m/%Y") %>
+        até <%= reservation.date_end.strftime("%d/%m/%Y") %></p>
+      <%= link_to 'Cancelar', user_reservation_path(reservation), method: :delete, data:{ confirm: 'Tem certeza que deseja cancelar?'}, class:'btn btn-danger'%>
+    </div>
+  <% end %>
+</div>

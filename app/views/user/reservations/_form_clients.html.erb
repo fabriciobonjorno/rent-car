@@ -1,19 +1,19 @@
 <%= form_with model: [:user, @reservation], local: true do |f| %>
   <div class="container">
-      <div class="row">
-        <div class="form-group col-md-3">
-          <%= f.label :date_start %>
-          <%= f.date_field :date_start, class: "form-control" %>
-        </div>
-        <div class="form-group col-md-3">
-          <%= f.label :date_end %>
-          <%= f.date_field :date_end, class: "form-control" %>
-        </div>
-      <div class="form-group col-md-2">
-      <label>Carro</label>
-      <%= collection_select(:reservation, :car_id, Car.all, :id, :model, { prompt: "Selecione" }, { class: "form-control" }) %>
-    </div>
+    <div class="row">
+      <div class="form-group col-md-3">
+        <%= f.label :date_start %>
+        <%= f.date_field :date_start, class: "form-control" %>
       </div>
+      <div class="form-group col-md-3">
+        <%= f.label :date_end %>
+        <%= f.date_field :date_end, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-2">
+        <label>Carro</label>
+        <%= collection_select(:reservation, :car_id, Car.all, :id, :model, { prompt: "Selecione" }, { class: "form-control" }) %>
+      </div>
+    </div>
     <div class="row mt-3">
       <div class="mx-auto">
         <%= f.submit class: "btn btn-success", data: { disable_with: "Criando....⌛" } %>

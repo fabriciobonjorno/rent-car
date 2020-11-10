@@ -1,27 +1,27 @@
 <%= form_with model: [:user, @client], local: true do |f| %>
   <div class="container">
-      <div class="row">
-        <div class="form-group col-md-3">
-          <%= f.label :name %>
-          <%= f.text_field :name, class: "form-control" %>
-        </div>
-        <div class="form-group col-md-3">
-          <%= f.label :email %>
-          <%= f.text_field :email, class: "form-control" %>
-        </div>
-        <div class="form-group col-md-3">
-          <%= f.label :password %>
-          <%= f.password_field :password, class: "form-control" %>
-        </div>
-        <div class="form-group col-md-3">
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, class: "form-control" %>
-        </div>
-        <div class="form-group col-md-3">
-          <%= f.label :cpf %>
-          <%= f.text_field :cpf, class: "form-control" %>
-        </div>
+    <div class="row">
+      <div class="form-group col-md-3">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
       </div>
+      <div class="form-group col-md-3">
+        <%= f.label :email %>
+        <%= f.text_field :email, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-3">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-3">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-3">
+        <%= f.label :cpf %>
+        <%= f.text_field :cpf, class: "form-control" %>
+      </div>
+    </div>
     <div class="row mt-3">
       <div class="mx-auto">
         <%= f.submit class: "btn btn-success", data: { disable_with: "Criando....⌛" } %>

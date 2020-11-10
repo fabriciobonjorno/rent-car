@@ -3,8 +3,7 @@ class User::ClientsController < UserController
   before_action :allow_without_password, only: [:update]
 
   def index
-    @clients = Client.all
-    @reservations = Reservation.all
+    @reservations = Reservation.where(client_id: current_client)
   end
 
   def new
@@ -21,8 +20,7 @@ class User::ClientsController < UserController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @client.update(clients_params)
