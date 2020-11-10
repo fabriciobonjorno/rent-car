@@ -6,7 +6,7 @@ class CreateCars < ActiveRecord::Migration[6.0]
       t.string :board
       t.string :model_year
       t.string :manufacture_year
-      t.boolean :reservation
+      t.boolean :rented
 
       t.timestamps
     end

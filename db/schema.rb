@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_11_09_162602) do
     t.string "board"
     t.string "model_year"
     t.string "manufacture_year"
-    t.boolean "reservation"
+    t.boolean "rented"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
