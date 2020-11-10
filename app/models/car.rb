@@ -1,3 +1,3 @@
 class Car < ApplicationRecord
-  belongs_to :reservation
+  scope :rented_false, -> { where(rented: false) }
 end

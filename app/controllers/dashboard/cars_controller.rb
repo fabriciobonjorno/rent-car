@@ -2,7 +2,7 @@ class Dashboard::CarsController < DashboardController
   before_action :set_cars, only: %i[edit update destroy]
 
   def index
-    @cars = Car.new
+    @cars = Car.all
   end
 
   def new
@@ -46,6 +46,6 @@ class Dashboard::CarsController < DashboardController
   end
 
   def cars_params
-    params.require(:car).permit(:model, :brand, :board, :model_year, :manufacture_year, :reservation)
+    params.require(:car).permit(:model, :brand, :board, :model_year, :manufacture_year, :rented)
   end
 end

@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @cars = Car.all
-    @reservation = Reservation.reservation_true
+    @cars = Car.rented_false
   end
 end
