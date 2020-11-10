@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'user/index'
-  get 'dashboard/index'
   root 'home#index'
   namespace :dashboard do
     resources :cars, expect: %i[show]
