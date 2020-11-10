@@ -10,7 +10,7 @@ class Dashboard::CarsController < DashboardController
   end
 
   def create
-    @car = Car.new(cars_params)
+    @car = Car.new(cars_params.merge(rented: false))
     if @car.save
       redirect_to dashboard_cars_path, notice: "#{@car.model} cadastrado com sucesso!"
     else

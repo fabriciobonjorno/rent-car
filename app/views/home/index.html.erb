@@ -1,8 +1,9 @@
 <div class="container mt-5">
   <div class="row">
     <% @cars.each do |car| %>
-      <div class="col-md-4">
+      <div class="col-md-4 mb-3">
         <div class="card p-3">
+          <%= image_tag("car.jpg", class:"img-fluid p-3") %>
           <p>Modelo: <%= car.model %></p>
           <p>Marca: <%= car.brand %></p>
           <p>Ano: <%= car.model_year %>/<%= car.manufacture_year %></p>

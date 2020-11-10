@@ -8,6 +8,8 @@ class User::ReservationsController < UserController
   def create
     @reservation = Reservation.new(reservations_params)
     if @reservation.save
+      car = Car.where(id: @reservation.car_id)
+      car.update(rented: true)
       redirect_to user_clients_path, notice: "#{@reservation.id} feita com sucesso!"
     else
       flash.now[:alert] = @reservation.errors.full_messages.to_sentence
@@ -16,6 +18,10 @@ class User::ReservationsController < UserController
   end
 
   def edit; end
+
+  def update_rented
+    @car = Car.update(rented: true)
+  end
 
   def update
     if @reservation.update(reservations_params)
@@ -28,6 +34,8 @@ class User::ReservationsController < UserController
 
   def destroy
     if @reservation.destroy
+      car = Car.where(id: @reservation.car_id)
+      car.update(rented: false)
       redirect_to user_clients_path, notice: "#{@reservation.id} excluida com sucesso!"
     else
       flash.now[:alert] = @reservation.errors.full_messages.to_sentence

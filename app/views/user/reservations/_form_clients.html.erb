@@ -11,7 +11,7 @@
       </div>
       <div class="form-group col-md-2">
         <label>Carro</label>
-        <%= collection_select(:reservation, :car_id, Car.all, :id, :model, { prompt: "Selecione" }, { class: "form-control" }) %>
+        <%= collection_select(:reservation, :car_id, Car.where(rented: false), :id, :model, { prompt: "Selecione" }, { class: "form-control" }) %>
       </div>
     </div>
     <div class="row mt-3">

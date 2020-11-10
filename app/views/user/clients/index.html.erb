@@ -4,13 +4,14 @@
 <h5>Minhas Reservas:</h5>
 <div class="row mt-2">
   <% @reservations.each do |reservation| %>
-    <div class="card p-3 ml-1 col-4">
-      <p>Cód. Reserva: <%= reservation.id %></p>
-      <p>Email: <%= reservation.client.email %></p>
-      <p>Modelo/Marca: <%= reservation.car.model %> / <%= reservation.car.brand %></p>
-      <p>Perido Reserva: de <%= reservation.date_start.strftime("%d/%m/%Y") %>
-        até <%= reservation.date_end.strftime("%d/%m/%Y") %></p>
-      <%= link_to 'Cancelar', user_reservation_path(reservation), method: :delete, data:{ confirm: 'Tem certeza que deseja cancelar?'}, class:'btn btn-danger'%>
+    <div class="col-4">
+      <div class="card p-2 mt-2">
+        <p>Cód. Reserva: <%= reservation.id %></p>
+        <p>Modelo/Marca: <%= reservation.car.model %> / <%= reservation.car.brand %></p>
+        <p>Perido Reserva: de <%= reservation.date_start.strftime("%d/%m/%Y") %>
+          até <%= reservation.date_end.strftime("%d/%m/%Y") %></p>
+        <%= link_to 'Cancelar', user_reservation_path(reservation), method: :delete, data:{ confirm: 'Tem certeza que deseja cancelar?'}, class:'btn btn-danger'%>
+      </div>
     </div>
   <% end %>
 </div>

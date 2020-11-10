@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   namespace :user do
     resources :reservations, expect: %i[index show]
-    resources :clients, expect: %i[show]
+    resources :clients, expect: %i[index show]
   end
 
   devise_for :clients
